@@ -1,0 +1,41 @@
+:root {
+    --black: #000000;
+    --white: #FFFFFF;
+    --blueWork: #05A1F9;
+    --blueWorkHover: #5f96ca;
+    --gray: #DBDADA;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+html {
+    font-size: 62.5%;  /* 1rem = 10px */
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    font-size: 1.6rem;
+}
+
+body,
+input,
+textarea,
+button {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+}
