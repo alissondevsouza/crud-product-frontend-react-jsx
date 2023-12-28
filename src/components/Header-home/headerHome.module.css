@@ -24,6 +24,10 @@
 }
 
 .header__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
     width: 21.3rem;
     height: 4.9rem;
     border-radius: 1.5rem;
