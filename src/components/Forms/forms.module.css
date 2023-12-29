@@ -40,3 +40,24 @@
     outline: none;
     border-color: var(--blueWork);
 }
+
+.create__button {
+    width: 155PX;
+    height: 35px;
+    border-radius: 1.5rem;
+    background: var(--blueWork);
+    color: var(--white);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 800;
+    border: none;
+}
+
+.create__button:hover {
+    background-color: var(--white);
+    color: var(--blueWork);
+    border: 0.1rem solid var(--blueWork);
+    transition: 0.3s;
+}

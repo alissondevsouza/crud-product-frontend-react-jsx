@@ -1,41 +1,30 @@
 import { HeaderHome } from '../../components/Header-home';
 import { TableProducts } from '../../components/Table-products';
 import styles from './home.module.css'
+import { useState, useEffect } from 'react';
 
 export function Home() {
 
-    const products = [
-        {
-          id: 1,
-          name: 'Produto 1',
-          price: 19.99,
-          description: 'Descrição do Produto 1',
-        },
-        {
-          id: 2,
-          name: 'Produto 2',
-          price: 29.99,
-          description: 'Descrição do Produto 2',
-        },
-        {
-          id: 3,
-          name: 'Produto 2',
-          price: 29.99,
-          description: 'Descrição do Produto 2',
-        },
-        {
-          id: 4,
-          name: 'Produto 2',
-          price: 29.99,
-          description: 'Descrição do Produto 2',
-        },
-        {
-          id: 5,
-          name: 'Produto 2',
-          price: 29.99,
-          description: 'Descrição do Produto 2',
+   const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+
+      async function getProducts() {
+
+        try {
+          const response = await fetch('http://localhost:4000/product');
+          
+          if(response.ok) {
+            const data = await response.json();
+            setProducts(data.products);
+          }
+        }catch(error) {
+          console.log(error);
         }
-      ];
+      }
+
+      getProducts();
+    }, []);
 
     return (
         <div>

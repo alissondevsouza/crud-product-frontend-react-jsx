@@ -9,7 +9,6 @@ export function CreateProduct() {
             <div className={styles.create__container}>
                 <span className={styles.create__title}>Cadastrar</span>
                 <Forms />
-                <button className={styles.create__button}>CADASTRAR</button>
             </div>
         </div>
     );
