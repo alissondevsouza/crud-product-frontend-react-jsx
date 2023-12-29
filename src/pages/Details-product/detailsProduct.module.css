@@ -1,0 +1,15 @@
+.details__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.details__title {
+    font-size: 3.6rem;
+    font-weight: 800;
+    font-style: italic;
+    line-height: normal;
+    margin-bottom: 8rem;
+    margin-top: 8rem;
+}

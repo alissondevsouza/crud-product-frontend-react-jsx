@@ -1,11 +1,13 @@
-import { Link } from 'react-router-dom';
-import './detailsProduct.module.css';
+import styles from './detailsProduct.module.css';
+import { HeaderHome } from '../../components/Header-home';
 
 export function DetailsProduct() {
     return (
         <div>
-            <h1>Details Product</h1>
-            <Link to="/home">VOLTAR</Link>
+        <HeaderHome actionButton='VOLTAR' pathButton='/home' />
+        <div className={styles.details__container}>
+            <span className={styles.details__title}>Detalhes</span>
         </div>
+    </div>
     );
 }

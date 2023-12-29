@@ -1,11 +1,13 @@
-import { Link } from 'react-router-dom';
-import './createProduct.module.css'
+import { HeaderHome } from '../../components/Header-home';
+import styles from './createProduct.module.css'
 
 export function CreateProduct() {
     return (
         <div>
-            <h1>Create Product</h1>
-            <Link to="/home">VOLTAR</Link>
+            <HeaderHome actionButton='VOLTAR' pathButton='/home' />
+            <div className={styles.create__container}>
+                <span className={styles.create__title}>Cadastrar</span>
+            </div>
         </div>
     );
 }

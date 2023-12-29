@@ -1,11 +1,13 @@
-import { Link } from 'react-router-dom';
-import './updateProduct.module.css';
+import styles from './updateProduct.module.css';
+import { HeaderHome } from '../../components/Header-home';
 
 export function UpdateProduct() {
     return (
         <div>
-            <h1>Update Product</h1>
-            <Link to="/home">VOLTAR</Link>
+            <HeaderHome actionButton='VOLTAR' pathButton='/home' />
+            <div className={styles.update__container}>
+                <span className={styles.update__title}>Atualizar</span>
+            </div>
         </div>
     );
 }

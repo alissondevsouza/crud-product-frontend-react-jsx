@@ -39,7 +39,7 @@ export function Home() {
 
     return (
         <div>
-            <HeaderHome />
+            <HeaderHome actionButton='CADASTRAR' pathButton='/create' />
             <div className={styles.table}>
               <span className={styles.table__title}>Produtos</span>
               <TableProducts products={products} />
