@@ -39,7 +39,7 @@ export const TableProducts = ({ products }) => {
                             <td >
                                 <div className={styles.container__button}>
                                     <Link to='/details' className={styles.button__table}>VER</Link>
-                                    <Link to='/update' className={styles.button__table}>EDIT</Link>
+                                    <Link to={`/update/${product.id}`} className={styles.button__table}>EDIT</Link>
                                     <button className={styles.button__table}>DELETE</button>
                                 </div>
                             </td>

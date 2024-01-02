@@ -12,6 +12,17 @@ const productService = {
     async createProduct(product) {
         const response = await axios.post(API_URL, product);
         return response.data;
+    },
+
+    async updateProduct(id, product) {
+        const response = await axios.put(API_URL + "?id=" + id, product);
+
+        return response.data;
+    },
+
+    async getProductById(id) {
+        const response = await axios.get(API_URL + "?id=" + id);
+        return response.data;
     }
 }
 
