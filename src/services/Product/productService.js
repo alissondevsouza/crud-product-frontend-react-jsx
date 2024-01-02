@@ -11,7 +11,7 @@ const productService = {
 
     async createProduct(product) {
         const response = await axios.post(API_URL, product);
-        return response;
+        return response.data;
     }
 }
 

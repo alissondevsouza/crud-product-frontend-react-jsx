@@ -1,55 +1,7 @@
-import styles from'./forms.module.css'
-import  { useState } from 'react';
-import axios from 'axios';
-import { toast } from 'react-toastify';
+import PropTypes from 'prop-types';
+import styles from './forms.module.css';
 
-export function Forms() {
-
-    const [formData, setFormData] = useState({
-        name: '',
-        price: '',
-        description: '',
-    });   
-    
-    const handleInputChange = (event) => {
-        const { name, value } = event.target;
-    
-        setFormData({ 
-            ...formData, [name]: value 
-        });
-    }
-
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        
-        try{
-            const postResponse = await axios.post ('http://localhost:4000/product', formData);
-
-            console.log('response: ', postResponse);
-''
-            const responseData = postResponse.data.message;
-
-
-            if (postResponse.status === 200) {
-                toast.success(responseData, {
-                    position: toast.POSITION.TOP_CENTER
-                });
-                
-            } else {
-                toast.error(responseData, {
-                    position: toast.POSITION.TOP_CENTER
-                });
-            }
-        }catch(error){
-            console.log(error)
-        }
-
-        setFormData({
-            name: '',
-            price: '',
-            description: '',   
-        });
-    }
+export function Forms( {handleSubmit, handleInputChange, formData, formButton}) {
 
     return (
         <div>
@@ -82,9 +34,16 @@ export function Forms() {
                         value={formData.description}
                         onChange={handleInputChange}
                     />
-                    <button type='submit' className={styles.create__button}>CADASTRAR</button>
+                    <button type='submit' className={styles.create__button}>{formButton}</button>
                 </div>
             </form>
         </div>
     );
 }
+Forms.propTypes = {
+    handleSubmit: PropTypes.func.isRequired,
+    handleInputChange: PropTypes.func.isRequired,
+    formData: PropTypes.object.isRequired,
+    formButton: PropTypes.string.isRequired,
+}
+
