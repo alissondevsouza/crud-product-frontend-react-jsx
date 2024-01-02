@@ -1,25 +1,22 @@
+import { useEffect, useState } from 'react';
 import { HeaderHome } from '../../components/Header-home';
 import { TableProducts } from '../../components/Table-products';
-import styles from './home.module.css'
-import { useState, useEffect } from 'react';
+import productService from '../../services/Product/productService';
+import styles from './home.module.css';
 
 export function Home() {
-
+                                 
    const [products, setProducts] = useState([]);
 
     useEffect(() => {
 
       async function getProducts() {
-
         try {
-          const response = await fetch('http://localhost:4000/product');
-          
-          if(response.ok) {
-            const data = await response.json();
-            setProducts(data.products);
-          }
+          const response = await productService.getProducts();
+          setProducts(response.products);
+  
         }catch(error) {
-          console.log(error);
+          console.log('error: ', error);
         }
       }
 

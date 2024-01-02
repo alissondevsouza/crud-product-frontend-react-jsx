@@ -1,5 +1,7 @@
 import styles from'./forms.module.css'
 import  { useState } from 'react';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 export function Forms() {
 
@@ -21,19 +23,22 @@ export function Forms() {
         event.preventDefault();
         
         try{
-            const postResponse = await fetch('http://localhost:4000/product', {
-                method: 'POST',
-                body: JSON.stringify(formData),
-                headers: {
-                    'Content-Type': 'application/json'
-                }   
-            });
+            const postResponse = await axios.post ('http://localhost:4000/product', formData);
 
-            if (postResponse.ok) {
-                const responseData = await postResponse.json(); // Processa a resposta como JSON
-                console.log('Resposta do backend:', responseData);
+            console.log('response: ', postResponse);
+''
+            const responseData = postResponse.data.message;
+
+
+            if (postResponse.status === 200) {
+                toast.success(responseData, {
+                    position: toast.POSITION.TOP_CENTER
+                });
+                
             } else {
-                console.log('Erro ao enviar a requisição:', postResponse.status);
+                toast.error(responseData, {
+                    position: toast.POSITION.TOP_CENTER
+                });
             }
         }catch(error){
             console.log(error)

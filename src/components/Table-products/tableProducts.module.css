@@ -1,6 +1,6 @@
 .table {
     width: 120rem;
-    height: 47rem;
+    max-height: 47rem;
     border-collapse: collapse;
     border: 1px solid var(--gray);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -55,3 +55,31 @@ td {
     padding: 1.5rem 3rem;
     text-align: center;
 }
+
+.pagination {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .pagination li {
+    margin: 0 5px;
+  }
+  
+  .pagination button {
+    padding: 5px 10px;
+    border: 1px solid var(--gray);
+    background-color: var(--white);
+    cursor: pointer;
+  }
+  
+  .pagination button:hover {
+    background-color: var(--gray);
+  }
+  
+  .pagination .active button {
+    background-color: var(--blueWork);
+    color: var(--white);
+    border-color: var(--blueWork);
+  }
