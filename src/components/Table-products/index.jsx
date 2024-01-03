@@ -2,8 +2,9 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './tableProducts.module.css';
+import 'react-toastify/dist/ReactToastify.css';
 
-export const TableProducts = ({ products }) => {
+export const TableProducts = ({ products, deleteProduct }) => {
 
     const [currentStep, setCurrentStep] = useState(1);
     const productsPerPage = 5;
@@ -40,7 +41,7 @@ export const TableProducts = ({ products }) => {
                                 <div className={styles.container__button}>
                                     <Link to='/details' className={styles.button__table}>VER</Link>
                                     <Link to={`/update/${product.id}`} className={styles.button__table}>EDIT</Link>
-                                    <button className={styles.button__table}>DELETE</button>
+                                    <button onClick={() => deleteProduct(product.id)} className={styles.button__table}>DELETE</button>
                                 </div>
                             </td>
                         </tr>
@@ -69,5 +70,6 @@ TableProducts.propTypes = {
             price: PropTypes.number.isRequired,
             description: PropTypes.string.isRequired,
         })
-    ).isRequired
+    ).isRequired,
+    deleteProduct: PropTypes.func.isRequired,
 }

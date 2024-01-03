@@ -9,6 +9,11 @@ const productService = {
         return response.data;
     },
 
+    async getProductById(id) {
+        const response = await axios.get(API_URL + "?id=" + id);
+        return response.data;
+    },
+
     async createProduct(product) {
         const response = await axios.post(API_URL, product);
         return response.data;
@@ -20,8 +25,8 @@ const productService = {
         return response.data;
     },
 
-    async getProductById(id) {
-        const response = await axios.get(API_URL + "?id=" + id);
+    async deleteProduct(id) {
+        const response = await axios.delete(API_URL + "?id=" + id);
         return response.data;
     }
 }

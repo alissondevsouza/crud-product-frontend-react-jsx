@@ -3,22 +3,44 @@ import { HeaderHome } from '../../components/Header-home';
 import { TableProducts } from '../../components/Table-products';
 import productService from '../../services/Product/productService';
 import styles from './home.module.css';
+import {toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export function Home() {
                                  
    const [products, setProducts] = useState([]);
 
-    useEffect(() => {
+   async function getProducts() {
+      try {
+        const response = await productService.getProducts();
+        setProducts(response.products);
 
-      async function getProducts() {
-        try {
-          const response = await productService.getProducts();
-          setProducts(response.products);
-  
-        }catch(error) {
-          console.log('error: ', error);
-        }
+      }catch(error) {
+        console.log('error: ', error);
       }
+    }
+
+    async function deleteProduct(id) {
+      try {
+          const response = await productService.deleteProduct(id);
+
+          if (response.code === 200) {
+              toast.success(response.product, {
+                  position: toast.POSITION.TOP_CENTER
+              });
+
+              getProducts();
+          } else {
+              toast.error(response.message, {
+                  position: toast.POSITION.TOP_CENTER
+              });
+          }    
+      }catch(error) {
+          console.log('error: ', error);
+      }
+    }
+
+    useEffect(() => {
 
       getProducts();
     }, []);
@@ -28,7 +50,8 @@ export function Home() {
             <HeaderHome actionButton='CADASTRAR' pathButton='/create' />
             <div className={styles.table}>
               <span className={styles.table__title}>Produtos</span>
-              <TableProducts products={products} />
+              <TableProducts products={products} deleteProduct={deleteProduct} />
+              <ToastContainer />
             </div>
         </div>
     );
