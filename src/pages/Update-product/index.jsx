@@ -60,8 +60,15 @@ export function UpdateProduct() {
                 toast.success(postResponse.message, {
                     position: toast.POSITION.TOP_CENTER
                 });
+
+                setFormData({
+                    name: '',
+                    price: '',
+                    description: '',
+                });
                 
             } else {
+                
                 toast.error(postResponse.message, {
                     position: toast.POSITION.TOP_CENTER
                 });
@@ -71,12 +78,6 @@ export function UpdateProduct() {
                 position: toast.POSITION.TOP_CENTER
             });
         }
-
-        setFormData({
-            name: '',
-            price: '',
-            description: '',
-        });
     }
 
     return (

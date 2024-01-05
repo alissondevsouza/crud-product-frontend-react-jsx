@@ -3,7 +3,7 @@ import { HeaderHome } from '../../components/Header-home';
 import { useEffect, useState } from 'react';
 import productService from '../../services/Product/productService';
 import { useParams } from 'react-router-dom';
-import image from '/public/img-produto-teste.png'
+import image from '/img-produto-teste.png'
 
 
 export function DetailsProduct() {
