@@ -28,7 +28,7 @@ export function CreateProduct() {
         try {
             const postResponse = await productService.createProduct(formData);
 
-            if (postResponse.code === 200) {
+            if (postResponse.code === 201) {
                 toast.success(postResponse.message, {
                     position: toast.POSITION.TOP_CENTER
                 });

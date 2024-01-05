@@ -13,7 +13,7 @@ export function App() {
             <Route path="/home" exact element={<Home />} />
             <Route path="/create" exact element={<CreateProduct />} />
             <Route path="/update/:productId" exact element={<UpdateProduct />} />
-            <Route path="/details" exact element={<DetailsProduct />} />
+            <Route path="/details/:productId" exact element={<DetailsProduct />} />
         </Routes>
     );
 }

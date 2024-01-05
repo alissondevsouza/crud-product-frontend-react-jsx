@@ -12,7 +12,7 @@ export const TableProducts = ({ products, deleteProduct }) => {
     const indexOfLastProduct = currentStep * productsPerPage;
     const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
     const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
-
+    
     const totalPages = Math.ceil(products.length / productsPerPage);
 
     const paginate = (pageNumber) => setCurrentStep(pageNumber);
@@ -39,7 +39,7 @@ export const TableProducts = ({ products, deleteProduct }) => {
                             <td >{product.description}</td>
                             <td >
                                 <div className={styles.container__button}>
-                                    <Link to='/details' className={styles.button__table}>VER</Link>
+                                    <Link to={`/details/${product.id}`} className={styles.button__table}>VER</Link>
                                     <Link to={`/update/${product.id}`} className={styles.button__table}>EDIT</Link>
                                     <button onClick={() => deleteProduct(product.id)} className={styles.button__table}>DELETE</button>
                                 </div>

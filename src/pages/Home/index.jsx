@@ -13,6 +13,7 @@ export function Home() {
    async function getProducts() {
       try {
         const response = await productService.getProducts();
+
         setProducts(response.products);
 
       }catch(error) {
