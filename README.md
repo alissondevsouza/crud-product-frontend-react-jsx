@@ -138,6 +138,31 @@ npm run dev
 
 </br>
 
+<span> <strong>2° Possibilidade de Execução:</strong> </span></br>
+
+<span>Execução com Docker:</span></br>
+
+~~~
+# Executar apenas API (backend) para cadastro de produtos
+npm run start:docker:productApi
+~~~
+
+</br>
+
+~~~
+# Executar apenas o frontend (este projeto)
+npm run start:docker:productFrontend
+~~~
+
+</br>
+
+~~~
+# Executar a solução toda: Backend, frontend e Banco de dados
+npm run start:docker:fullapplication
+~~~
+
+</br>
+
 <span> <strong>Acesso à Aplicação:</strong> </span></br>
 
 <li>

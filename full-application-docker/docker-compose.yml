@@ -1,0 +1,31 @@
+version: '3'
+services:
+  api-register-product:
+    image: alissondevsouza/api-register-product:latest
+    ports:
+      - "4000:4000"
+    environment:
+      - APIPORT=4000
+      - DBHOST=postgres_db
+      - DBPORT=5432
+      - DBUSER=postgres
+      - DBPASS=postgres1234
+      - DBNAME=crud_products
+  postgres_db:
+    image: postgres:latest
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres1234
+      - POSTGRES_DB=crud_products
+    volumes:
+      - ./scripts-data-base/create_product_table.sql:/docker-entrypoint-initdb.d/init.sql
+  crud-product-app:
+    build:
+      context: ../
+      dockerfile: Dockerfile
+    ports:
+      - "5173:80" 
+    volumes:
+      - .:/app 
