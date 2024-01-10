@@ -17,7 +17,7 @@ export function Home() {
         setProducts(response.products);
 
       }catch(error) {
-        console.log('error: ', error);
+        console.error('error: ', error);
       }
     }
 
@@ -37,7 +37,7 @@ export function Home() {
               });
           }    
       }catch(error) {
-          console.log('error: ', error);
+          console.error('error: ', error);
       }
     }
 

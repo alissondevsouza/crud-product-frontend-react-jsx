@@ -20,7 +20,7 @@ export function DetailsProduct() {
                 setProduct(response.product);
                 
             }catch (error) {
-                console.log(error.response.data.message);
+                console.error(error.response.data.message);
             }
         }
 
